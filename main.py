@@ -25,7 +25,7 @@ def next_q(q_id):
             if options[q_id].split(';')[opts_var.get()-1] in answers[q_id].split(';'):
                 if answers[q_id] == '':
                     answers_prov.append(options[q_id].split(';')[opts_var.get()-1])
-                    showwarning('Alert', 'Since you just answered a question without an answer, we cannot grade it. Sorry about the inconvinience. Your invidulator can use your end result and grade you.')
+                    showwarning('Alert', 'You did not enter an answer.')
                     logs.append('Manual')
                     marks_obt.append('?')
                 elif options[q_id].split(';')[opts_var.get()-1] != '' and opts_var.get()-1 > -1:
@@ -56,7 +56,7 @@ def next_q(q_id):
             if answers[q_id] == '':
                 logs.append('Manual')
                 marks_obt.append('?')
-                showwarning('Alert', 'Since you just answered a question without an answer, we cannot grade it. Sorry about the inconvinience. Your invidulator can use your end result and grade you.')
+                showwarning('Alert', 'You did not enter an answer.')
             else:
                 showinfo('Correct!', 'Your answer is correct!')
                 logs.append('Auto: Correct')
@@ -70,7 +70,7 @@ def next_q(q_id):
     elif types[q_id] == 'lq':
         answers_prov.append('Check the Text File')
         logs.append('Manual')
-        showwarning('Alert', 'Since you just answered a long answer question, we cannot grade it. Sorry about the inconvinience. Your invidulator can use your end result and grade you.')
+        showwarning('Alert', 'You did not enter an answer.')
         logs_lq.append('\nQUESTION '+str(q_id+1)+'\n\n'+field.get('1.0', 'end-1c')+'\n')
         marks_obt.append('?')
     root.destroy()
@@ -160,6 +160,7 @@ class Intro:
         py_but = tk.Button(welcome_window, command=lambda: init_array('Python.csv') ,text = "Python").grid(row = 1, column = 0)
         code_but = tk.Button(welcome_window,command=lambda: init_array('Coding.csv'), text = "Coding").grid(row = 1, column = 1)
         gk_button = tk.Button(welcome_window,command=lambda: init_array('GK.csv'), text = "General Knowledge").grid(row = 1, column = 2)
+        
         file_button = tk.Button(welcome_window,command=self.open_quiz_csv, text = "External Quiz").grid(row = 1, column = 3)
 
         welcome_window.mainloop()
