@@ -4,9 +4,9 @@ from tkinter.messagebox import askokcancel, showinfo, showerror, showwarning
 from subprocess import call
 import os
 import datetime as dt
-import time
+# import time
 import csv
-import urllib.request
+# import urllib.request
 from tkinter.scrolledtext import ScrolledText
 from tkinter.filedialog import askdirectory, askopenfile, asksaveasfile
 
@@ -160,8 +160,8 @@ class Intro:
         py_but = tk.Button(welcome_window, command=lambda: init_array('Python.csv') ,text = "Python").grid(row = 1, column = 0)
         code_but = tk.Button(welcome_window,command=lambda: init_array('Coding.csv'), text = "Coding").grid(row = 1, column = 1)
         gk_button = tk.Button(welcome_window,command=lambda: init_array('GK.csv'), text = "General Knowledge").grid(row = 1, column = 2)
-        
-        file_button = tk.Button(welcome_window,command=self.open_quiz_csv, text = "External Quiz").grid(row = 1, column = 3)
+        CGRC_button = tk.Button(welcome_window,command=lambda: init_array('CGRC.csv'), text = "CGRC").grid(row = 1, column = 3)
+        file_button = tk.Button(welcome_window,command=self.open_quiz_csv, text = "External Quiz").grid(row = 1, column = 4)
 
         welcome_window.mainloop()
 
